@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.junit.Test;
 
-import com.upper.Main;
+import com.main.Main;
 
 public class FilterTest {
 	@Test
