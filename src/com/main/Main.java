@@ -3,7 +3,9 @@ package com.main;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 import com.person.Person;
@@ -17,8 +19,10 @@ public class Main {
 		 upperCase(Arrays.asList("osx", "win", "linux"));
 		 System.out.println(collectionLessThan4characters(Arrays.asList("osx","win", "linux")));
 		 System.out.println(flattenCollection(Arrays.asList("Viktor","Farcic"), Arrays.asList("John", "Doe", "Third")));
-		 System.out.println(getOldestPerson(Arrays.asList(new Person("Nina", 17), new Person("Eva", 55), new Person("Jown", 22))));				
+		 System.out.println(getOldestPerson(Arrays.asList(new Person("Nina", 17), new Person("Eva", 55), new Person("Jown", 22))));
+		System.out.print(sumAllElements(1,3));
 	}
+
 
 	public static List<String> upperCase(List<String> collection) {
 		return collection.stream().map(x -> x.toUpperCase()).collect(Collectors.toList());
@@ -34,5 +38,9 @@ public class Main {
 	
 	public static Person getOldestPerson(List<Person> people) {
 		return people.stream().max(Comparator.comparing(Person::getAge)).get();
+	}
+
+	public static int sumAllElements(int a, int b){
+		return IntStream.range(a,b).reduce(0,Integer::sum);
 	}
 }
